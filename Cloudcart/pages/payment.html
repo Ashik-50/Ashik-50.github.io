@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../css/payment.css" />
+  <title>Payment Page</title>
+</head>
+<body>
+  <header>
+    <img src="../images/logo.png" class="chanel-logo" alt="CHANEL Logo" />
+    <h2 class="logo">CLOUDCART</h2>
+    <ul class="menu-container">
+      <li class="menu-item"><a href="../index.html">Home</a></li>
+      <li class="menu-item"><a href="cart.html">Back</a></li>
+    </ul>
+  </header>
+
+  <div class="form-container">
+    <h2 class="form-title">Payment Details</h2>
+    <p id="total-amount" class="total-amount"></p>
+
+    <form id="checkout-form" class="checkout-form">
+      <div class="input-line">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Your full name" required />
+      </div>
+
+      <div class="input-line">
+        <label for="address">Billing Address</label>
+        <input type="text" id="address" placeholder="123 Main St" required />
+      </div>
+
+      <div class="input-line">
+        <label for="card-name">Name on Card</label>
+        <input type="text" id="card-name" placeholder="As displayed on card" required />
+      </div>
+
+      <div class="input-line">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="1111-2222-3333-4444" required />
+      </div>
+
+      <div class="input-container">
+        <div class="input-line">
+          <label for="expiry-date">Expiry Date</label>
+          <input type="text" id="expiry-date" placeholder="MM/YY" required />
+        </div>
+        <div class="input-line">
+          <label for="cvc">CVC</label>
+          <input type="text" id="cvc" placeholder="123" maxlength="3" required />
+        </div>
+      </div>
+
+      <button type="submit" class="purchase-btn">Complete Purchase</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const totalAmount = localStorage.getItem("totalPrice");
+      const amountDisplay = document.getElementById("total-amount");
+      amountDisplay.textContent = totalAmount
+        ? "Total to be paid: ₹ " + Number(totalAmount).toLocaleString()
+        : "No items in cart.";
+
+      const form = document.getElementById("checkout-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const fields = ["fullname",  "address", "card-name", "card-number", "expiry-date", "cvc"];
+        let valid = true;
+
+        for (let field of fields) {
+          const value = document.getElementById(field).value.trim();
+          if (!value) {
+            alert("Please fill in all fields.");
+            valid = false;
+            break;
+          }
+        }
+
+        if (valid) {
+          alert("Payment successful! Redirecting...");
+          window.location.href = "end.html";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

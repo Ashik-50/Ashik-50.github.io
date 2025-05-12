@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In - Cloud Cart</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body background="../images/background.jpg">
+  <div class="wrapper">
+    <div class="title">SIGN IN</div>
+    <div class="form">
+      <div class="inputfield">
+        <label>First Name</label>
+        <input type="text" class="input" id="firstName" required />
+      </div>
+      <div class="inputfield">
+        <label>Last Name</label>
+        <input type="text" class="input" id="lastName" required />
+      </div>
+      <div class="inputfield">
+        <label>Password</label>
+        <input type="password" class="input" id="password" required />
+      </div>
+      <div class="inputfield">
+        <button class="btn" id="loginButton">LOGIN</button>
+      </div>
+      <div class="signup-link">
+        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginButton').addEventListener('click', function (event) {
+      event.preventDefault();
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      window.location.href = '../index.html';
+    });
+  </script>
+</body>
+</html>

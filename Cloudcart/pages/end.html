@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('../images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo {
+            height: 12vh;
+            width: 10vw;
+            object-fit: contain;
+        }
+
+        .big-heading {
+            font-weight: bold;
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+        }
+
+        .browse-btn {
+            display: inline-block;
+            background-color: rgb(253, 15, 15);
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .browse-btn:hover {
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <img src="../images/logo.png" alt="CHANEL Logo" class="logo">
+    <h1 class="big-heading">Your Order has been placed</h1>
+    <h2>Thank you for buying with us</h2>
+    <a href="../index.html" class="browse-btn">Continue Browsing</a>
+</body>
+</html>
